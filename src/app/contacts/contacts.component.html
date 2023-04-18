@@ -1,1 +1,6 @@
-<p>contacts works!</p>
+<ng-container 
+    *ngFor="let contact of contacts$|async">
+    <div style="margin-top: 1rem;">{{contact|json}}</div>
+</ng-container>
+
+<!-- TODO: Table view w/ search, patch favorite, delete row (undo???), add contact modal -->

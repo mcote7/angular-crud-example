@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ContactsService } from './services/contacts.service';
+
 
 @Component({
     selector: 'contacts',
@@ -7,4 +9,7 @@ import { Component } from '@angular/core';
 })
 export class ContactsComponent {
 
+    public contacts$ = this.contactsService.contacts$;
+
+    constructor(private contactsService: ContactsService) {}
 }
