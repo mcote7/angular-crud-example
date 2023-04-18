@@ -1,0 +1,25 @@
+.links {
+    ::ng-deep .mdc-button {
+        &:hover {
+            .mdc-button__label {
+                text-decoration: underline;
+            }
+        }
+        &.active {
+            pointer-events: none;
+            background: white;
+            .mdc-button__label {
+                color: black;
+            }
+            &:hover {
+                .mdc-button__label {
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
