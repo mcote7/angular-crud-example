@@ -1,5 +1,6 @@
 export interface Contact {
-    id: number;
+    property: boolean;
+    id?: number;
     name: string;
     email: string;
     phone: string;
