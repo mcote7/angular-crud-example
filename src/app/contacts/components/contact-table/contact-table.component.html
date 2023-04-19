@@ -52,7 +52,7 @@
                 mat-icon-button 
                 color="accent" 
                 aria-label="edit contact"
-                (click)="null">
+                (click)="openContactForm(contact)">
                 <mat-icon>edit</mat-icon>
             </button>
         </mat-cell>
@@ -62,3 +62,9 @@
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 </mat-table>
 
+<button 
+    mat-raised-button 
+    color="primary"
+    (click)="openContactForm()">
+    Add Contact
+</button>

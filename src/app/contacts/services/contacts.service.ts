@@ -47,10 +47,22 @@ export class ContactsService {
             );
     }
 
-    public editContact(contact: Contact, editedContact: Contact): Observable<Contact> {
-        return this.http.put<Contact>(`${this.API_URL}/${contact.id}`, editedContact)
+    public editContact(contactId: number, editedContact: any): Observable<Contact> {
+        return this.http.put<Contact>(`${this.API_URL}/${contactId}`, editedContact)
             .pipe(
-                tap((updatedContact) => contact = updatedContact)
+                tap((updatedContact) => {
+                    const updatedContacts = this.contacts.getValue().map((contact) => {
+                        if(contact.id === contactId) {
+                            return {
+                                ...updatedContact,
+                                favorite: contact.favorite
+                            };
+                        } else {
+                            return contact;
+                        }
+                    })
+                    this.contacts.next(updatedContacts)
+                })
             );
     }
 }

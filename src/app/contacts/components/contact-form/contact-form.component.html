@@ -1,24 +1,38 @@
-<form [formGroup]="contactForm" (ngSubmit)="addContact()">
-    <label>
-        name
-        <input type="text" formControlName="name"/>
-        <!-- errors -->
-        <div *ngIf="contactForm.controls['name'].touched && contactForm.controls['name'].invalid" class="form-error">
-            <div *ngIf="contactForm.controls['name'].errors && contactForm.controls['name'].errors['required']">Name is required.</div>
-            <div *ngIf="contactForm.controls['name'].errors && contactForm.controls['name'].errors['minlength']">Name should be 2 character.</div>
-        </div>
-    </label>
-    <label>
-        email
-        <input type="text" formControlName="email"/>
-    </label>
-    <label>
-        phone
-        <input type="text" formControlName="phone" mask="000-000-0000"/>
-    </label>
-    <label>
-        comment
-        <input type="text" formControlName="comment"/>
-    </label>
-    <button type="submit" [disabled]="contactForm.invalid">Submit</button>
-</form>
+<h2 mat-dialog-title>add/edit contact</h2>
+<mat-dialog-content [formGroup]="contactForm">
+    <!--  -->
+    <mat-form-field>
+        <input matInput placeholder="name" formControlName="name">
+        <mat-error *ngIf="contactForm.controls['name'].errors && contactForm.controls['name'].errors['required']">Name is required.</mat-error>
+        <mat-error *ngIf="contactForm.controls['name'].errors && contactForm.controls['name'].errors['minlength']">Name should be 2 character.</mat-error>
+    </mat-form-field>
+    <!--  -->
+    <mat-form-field>
+        <input matInput placeholder="email" formControlName="email">
+    </mat-form-field>
+    <!--  -->
+    <mat-form-field>
+        <input matInput placeholder="phone" formControlName="phone" mask="000-000-0000">
+    </mat-form-field>
+    <!--  -->
+    <mat-form-field>
+        <input matInput placeholder="comment" formControlName="comment">
+    </mat-form-field>
+    <!--  -->
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button 
+        mat-raised-button 
+        color="primary" 
+        [disabled]="contactForm.invalid"
+        (click)="isEdit ? editContact() : addContact()">
+        Submit
+    </button>
+    <!--  -->
+    <button 
+        mat-raised-button
+        (click)="close()">
+        Close
+    </button>
+</mat-dialog-actions>
