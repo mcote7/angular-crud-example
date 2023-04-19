@@ -1,0 +1,64 @@
+<mat-table [dataSource]="contacts$">
+    <!--  -->
+    <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef> Id. </mat-header-cell>
+        <mat-cell *matCellDef="let contact">{{contact.id}}</mat-cell>
+    </ng-container>
+    <!--  -->
+    <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+        <mat-cell *matCellDef="let contact">{{contact.name}}</mat-cell>
+    </ng-container>
+    <!--  -->
+    <ng-container matColumnDef="email">
+        <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
+        <mat-cell *matCellDef="let contact">{{contact.email}}</mat-cell>
+    </ng-container>
+    <!--  -->
+    <ng-container matColumnDef="phone">
+        <mat-header-cell *matHeaderCellDef> Phone </mat-header-cell>
+        <mat-cell *matCellDef="let contact">{{contact.phone}}</mat-cell>
+    </ng-container>
+    <!--  -->
+    <ng-container matColumnDef="comment">
+        <mat-header-cell *matHeaderCellDef> Comment </mat-header-cell>
+        <mat-cell *matCellDef="let contact">{{contact.comment}}</mat-cell>
+    </ng-container>
+    <!--  -->
+    <ng-container matColumnDef="favorite">
+        <mat-header-cell *matHeaderCellDef> Favorite </mat-header-cell>
+        <mat-cell *matCellDef="let contact">
+            <button 
+                mat-icon-button 
+                color="primary" 
+                aria-label="favorite contact"
+                (click)="favoriteContact(contact)">
+                <mat-icon>{{contact.favorite ? 'thumb_up':'thumb_down'}}</mat-icon>
+            </button>
+        </mat-cell>
+    </ng-container>
+    <!--  -->
+    <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+        <mat-cell *matCellDef="let contact">
+            <button 
+                mat-icon-button 
+                color="warn" 
+                aria-label="favorite contact"
+                (click)="removeContact(contact.id)">
+                <mat-icon>delete</mat-icon>
+            </button>
+            <button 
+                mat-icon-button 
+                color="accent" 
+                aria-label="edit contact"
+                (click)="null">
+                <mat-icon>edit</mat-icon>
+            </button>
+        </mat-cell>
+    </ng-container>
+    <!--  -->
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+

@@ -1,12 +1,12 @@
 {
-    "contacts_list": [
-        {
-            "name": "Michael Cote",
-            "email": "michaelcote7@gmail.com",
-            "phone": "2063756709",
-            "comment": null,
-            "id": 1,
-            "favorite": false
-        }
-    ]
+  "contacts_list": [
+    {
+      "name": "Michael Cote",
+      "email": "michaelcote7@gmail.com",
+      "phone": "2063756709",
+      "comment": null,
+      "id": 1,
+      "favorite": true
+    }
+  ]
 }
