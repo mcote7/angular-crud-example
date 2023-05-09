@@ -5,7 +5,16 @@
       "email": "michaelcote7@gmail.com",
       "phone": "2063756709",
       "comment": null,
-      "id": 1
+      "id": 1,
+      "favorite": false
+    },
+    {
+      "name": "Michael Cote",
+      "email": "michaelcote7@gmail.com",
+      "phone": "2222222222",
+      "comment": "",
+      "id": 2,
+      "favorite": false
     }
   ]
 }
