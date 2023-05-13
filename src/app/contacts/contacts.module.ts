@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 import { ContactsRoutingModule } from './contacts-routing.module';
 import { ContactsComponent } from './contacts.component';
@@ -16,6 +17,7 @@ import { MatExportsModule } from '../mat-exports/mat-exports.module';
         ContactFormComponent
     ],
     imports: [
+        CommonModule,
         ContactsRoutingModule,
         ReactiveFormsModule,
         MatExportsModule

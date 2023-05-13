@@ -1,4 +1,5 @@
-<mat-table [dataSource]="contacts$">
+
+<mat-table [@listAnimationWrap]="(contacts$|async)!.length" (@listAnimationWrap.done)="tableAnimationDone($event)" [dataSource]="contacts$">
     <!--  -->
     <ng-container matColumnDef="id">
         <mat-header-cell *matHeaderCellDef> Id. </mat-header-cell>
@@ -59,10 +60,12 @@
     </ng-container>
     <!--  -->
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    <mat-row @listAnimationItem *matRowDef="let row; columns: displayedColumns;"></mat-row>
 </mat-table>
 
 <button 
+    @fadeIn
+    *ngIf="isTableAnimationDone"
     mat-raised-button 
     color="primary"
     (click)="openContactForm()">

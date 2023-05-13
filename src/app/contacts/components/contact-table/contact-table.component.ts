@@ -3,18 +3,22 @@ import { ContactsService } from '../../services/contacts.service';
 import { Contact } from '../../modals/contacts';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { ContactFormComponent } from '../contact-form/contact-form.component';
+import { listAnimationWrap, listAnimationItem, fadeIn } from 'src/app/animations/animations';
 
 
 @Component({
     selector: 'contact-table',
     templateUrl: './contact-table.component.html',
-    styleUrls: ['./contact-table.component.scss']
+    styleUrls: ['./contact-table.component.scss'],
+    animations: [listAnimationWrap, listAnimationItem, fadeIn]
 })
 export class ContactTableComponent {
 
     public contacts$ = this.contactsService.contacts$;
 
     public readonly displayedColumns: Array<string> = ['id', 'name', 'email', 'phone', 'comment', 'favorite', 'actions'];
+
+    public isTableAnimationDone: boolean = false;
 
     constructor(
         private contactsService: ContactsService, 
@@ -43,5 +47,10 @@ export class ContactTableComponent {
         } else {
             this.dialog.open(ContactFormComponent);
         }
+    }
+
+    tableAnimationDone(e:any ) {
+        console.log("table animation done!",e)
+        e.toState !== 0 ? this.isTableAnimationDone = true : null;
     }
 }
