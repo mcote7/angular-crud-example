@@ -14,11 +14,13 @@ export class ContactsService {
     private contacts = new BehaviorSubject<Array<Contact>>([]);
     public contacts$ = this.contacts.asObservable();
 
+
     constructor(private http: HttpClient) {
         this.getContacts().subscribe();
     }
 
     // TODO: add loading state ... 
+
     private getContacts(): Observable<Array<Contact>> {
         return this.http.get<Array<Contact>>(this.API_URL)
             .pipe(
@@ -60,7 +62,7 @@ export class ContactsService {
                         } else {
                             return contact;
                         }
-                    })
+                    });
                     this.contacts.next(updatedContacts)
                 })
             );

@@ -5,4 +5,6 @@ export interface Contact {
     phone: string;
     comment?: string;
     favorite: boolean;
+    // 
+    count?: number;
 };

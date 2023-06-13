@@ -6,7 +6,7 @@
       "phone": "2063756709",
       "comment": null,
       "id": 1,
-      "favorite": true
+      "favorite": false
     },
     {
       "name": "Michael Cote",
@@ -14,15 +14,14 @@
       "phone": "2222222222",
       "comment": "",
       "id": 2,
-      "favorite": true
+      "favorite": false
     },
     {
-      "name": "mimimi",
+      "name": "ok",
       "email": "michaelcote7@gmail.com",
-      "phone": "8898989890",
+      "phone": "8888888888",
       "comment": "",
-      "id": 3,
-      "favorite": true
+      "id": 3
     }
   ]
 }

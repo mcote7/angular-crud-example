@@ -16,6 +16,9 @@ export class ContactTableComponent {
 
     public contacts$ = this.contactsService.contacts$;
 
+    // public combined$ = this.contactsService.combined$;
+    // public forked$ = this.contactsService.forked$;
+
     public readonly displayedColumns: Array<string> = ['id', 'name', 'email', 'phone', 'comment', 'favorite', 'actions'];
 
     public isTableAnimationDone: boolean = false;
@@ -23,7 +26,10 @@ export class ContactTableComponent {
     constructor(
         private contactsService: ContactsService, 
         private dialog: MatDialog
-    ) {}
+    ) {
+        // this.combined$.subscribe((v) => console.log(v))
+        // this.forked$.subscribe((v) => console.log(v))
+    }
 
     removeContact(id: number) {
         this.contactsService.deleteContact(id).subscribe();
@@ -50,7 +56,7 @@ export class ContactTableComponent {
     }
 
     tableAnimationDone(e:any ) {
-        console.log("table animation done!",e)
+        // console.log("table animation done!",e)
         e.toState !== 0 ? this.isTableAnimationDone = true : null;
     }
 }

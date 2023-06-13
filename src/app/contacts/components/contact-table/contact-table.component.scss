@@ -1,8 +1,23 @@
-// mat-table {
-//     // border-bottom: 1px solid rgba(0, 0, 0, 0.24);
-// }
-
-.mat-mdc-raised-button {
-    margin-top: 1rem;
-    margin-left: 1rem;
+.card {
+    width: calc(100% - 4rem);
+    margin: 1rem;
+    padding: 1rem;
+    border: 1px solid rebeccapurple;
+    border-radius: 1rem;
+    overflow-x: auto;
+    table {
+        // width: 100%;
+        // table-layout: fixed;
+        // border-bottom: 1px solid rgba(0, 0, 0, 0.24);
+        mat-cell {
+            overflow: hidden;
+            width: auto;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    }
+    .mat-mdc-raised-button {
+        margin-top: 1rem;
+        margin-left: 1rem;
+    }
 }
