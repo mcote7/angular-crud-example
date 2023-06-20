@@ -18,7 +18,7 @@ import { ChildComponent } from './components/child/child.component';
     imports: [
         CommonModule,
         ExamplesRoutingModule
-        // CommonModule, imported in app.module from "BrowserModule" ...
+        // CommonModule, imported in app.module from "BrowserModule" ... ??? 
     ]
 })
 export class ExamplesModule { }

@@ -21,7 +21,7 @@ export class ContactsService {
 
     // TODO: add loading state ... 
 
-    private getContacts(): Observable<Array<Contact>> {
+    public getContacts(): Observable<Array<Contact>> {
         return this.http.get<Array<Contact>>(this.API_URL)
             .pipe(
                 tap((contacts) => this.contacts.next(contacts))

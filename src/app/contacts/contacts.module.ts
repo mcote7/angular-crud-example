@@ -8,13 +8,15 @@ import { ContactTableComponent } from './components/contact-table/contact-table.
 import { ContactFormComponent } from './components/contact-form/contact-form.component';
 
 import { MatExportsModule } from '../mat-exports/mat-exports.module';
+import { ContactCardsComponent } from './components/contact-cards/contact-cards.component';
 
 
 @NgModule({
     declarations: [
         ContactsComponent,
         ContactTableComponent,
-        ContactFormComponent
+        ContactFormComponent,
+        ContactCardsComponent
     ],
     imports: [
         CommonModule,
