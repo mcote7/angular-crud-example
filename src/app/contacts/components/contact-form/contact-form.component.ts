@@ -29,7 +29,7 @@ export class ContactFormComponent {
         @Inject(MAT_DIALOG_DATA) data: Contact
     ) {
         if(data) {
-            console.log("contact to edit", data, this.contactForm)
+            // console.log("contact to edit", data, this.contactForm)
             this.isEdit = true;
             this.contactToEditId = data.id || 0;
             this.contactForm.patchValue({

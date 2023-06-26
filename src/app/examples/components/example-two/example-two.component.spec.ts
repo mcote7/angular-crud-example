@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ExampleTwoComponent } from './example-two.component';
 import { ParentComponent } from '../parent/parent.component';
+import { ChildComponent } from '../child/child.component';
 
 describe('ExampleTwoComponent', () => {
   let component: ExampleTwoComponent;
@@ -9,7 +10,7 @@ describe('ExampleTwoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ExampleTwoComponent, ParentComponent ]
+      declarations: [ ExampleTwoComponent, ParentComponent, ChildComponent ]
     })
     .compileComponents();
 

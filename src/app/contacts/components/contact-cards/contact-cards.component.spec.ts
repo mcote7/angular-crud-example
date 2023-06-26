@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ContactCardsComponent } from './contact-cards.component';
+import { HttpClientModule } from '@angular/common/http';
+import { MatDialogModule } from '@angular/material/dialog';
 
 describe('ContactCardsComponent', () => {
   let component: ContactCardsComponent;
@@ -8,6 +10,7 @@ describe('ContactCardsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+        imports: [HttpClientModule, MatDialogModule],
       declarations: [ ContactCardsComponent ]
     })
     .compileComponents();

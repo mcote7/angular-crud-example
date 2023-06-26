@@ -3,6 +3,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { MatToolbar } from '@angular/material/toolbar';
+import { MatIcon } from '@angular/material/icon';
 
 describe('AppComponent', () => {
     beforeEach(async () => {
@@ -13,7 +14,8 @@ describe('AppComponent', () => {
             declarations: [
                 AppComponent,
                 NavigationComponent,
-                MatToolbar
+                MatToolbar,
+                MatIcon
             ],
         }).compileComponents();
     });
