@@ -15,21 +15,10 @@ import { listAnimationWrap, listAnimationItem, fadeIn } from 'src/app/animations
 export class ContactTableComponent {
 
     public contacts$ = this.contactsService.contacts$;
-
-    // public combined$ = this.contactsService.combined$;
-    // public forked$ = this.contactsService.forked$;
-
     public readonly displayedColumns: Array<string> = ['id', 'name', 'email', 'phone', 'comment', 'favorite', 'actions'];
-
     public isTableAnimationDone: boolean = false;
 
-    constructor(
-        private contactsService: ContactsService, 
-        private dialog: MatDialog
-    ) {
-        // this.combined$.subscribe((v) => console.log(v))
-        // this.forked$.subscribe((v) => console.log(v))
-    }
+    constructor(private contactsService: ContactsService, private dialog: MatDialog) {}
 
     removeContact(id: number) {
         this.contactsService.deleteContact(id).subscribe();
@@ -41,13 +30,14 @@ export class ContactTableComponent {
 
     openContactForm(contactToEdit?: Contact) {
         if(contactToEdit) {
-            const dialogConfig = new MatDialogConfig();
+            const dialogConfig = new MatDialogConfig<Contact>();
             dialogConfig.data = {
                 id: contactToEdit.id,
                 name: contactToEdit.name,
                 email: contactToEdit.email,
                 phone: contactToEdit.phone,
-                comment: contactToEdit.comment
+                comment: contactToEdit.comment,
+                favorite: contactToEdit.favorite
             };
             this.dialog.open(ContactFormComponent, dialogConfig);
         } else {
@@ -55,8 +45,5 @@ export class ContactTableComponent {
         }
     }
 
-    tableAnimationDone(e:any ) {
-        // console.log("table animation done!",e)
-        e.toState !== 0 ? this.isTableAnimationDone = true : null;
-    }
+    tableAnimationDone(e:any ) { e.toState !== 0 ? this.isTableAnimationDone = true : null }
 }

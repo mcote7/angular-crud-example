@@ -21,7 +21,7 @@ export class ContactsService {
 
     // TODO: add loading state ... 
 
-    public getContacts(): Observable<Array<Contact>> {
+    private getContacts(): Observable<Array<Contact>> {
         return this.http.get<Array<Contact>>(this.API_URL)
             .pipe(
                 tap((contacts) => this.contacts.next(contacts))
@@ -63,7 +63,7 @@ export class ContactsService {
                             return contact;
                         }
                     });
-                    this.contacts.next(updatedContacts)
+                    this.contacts.next([...updatedContacts]);
                 })
             );
     }

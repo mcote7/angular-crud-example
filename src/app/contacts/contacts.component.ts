@@ -15,7 +15,6 @@ export class ContactsComponent implements AfterContentInit {
     constructor( public platform: Platform ) {}
 
     ngAfterContentInit(): void {
-        // console.log("is mobile? : ", this.platform.ANDROID || this.platform.IOS)
         const isMobile = this.platform.ANDROID || this.platform.IOS;
         this.contactsContainer.createComponent<ContactCardsComponent | ContactTableComponent>(isMobile ? ContactCardsComponent : ContactTableComponent);
     }

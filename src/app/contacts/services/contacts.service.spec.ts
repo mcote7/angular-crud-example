@@ -46,7 +46,7 @@ describe('ContactsService', () => {
 
     it('should get all contacts', () => {
         service.getContacts().subscribe((res) => {
-            console.log("http get test res: ",res)
+            // console.log("http get test res: ",res)
             expect(res).toBeTruthy();
             expect(res.length).toBe(3);
         });

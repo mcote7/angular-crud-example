@@ -16,7 +16,8 @@ export class ContactFormComponent {
         name: ['', [Validators.required, Validators.minLength(2)]],
         email: ['', [Validators.required, Validators.email]],
         phone: ['', [Validators.required, Validators.pattern('^(\\+?\d{1,4}[\s-])?(?!0+\s+,?$)\\d{10}\s*,?$')]],
-        comment: ''
+        comment: '',
+        favorite: null
     });
 
     public contactToEditId: number = 0;
@@ -29,14 +30,14 @@ export class ContactFormComponent {
         @Inject(MAT_DIALOG_DATA) data: Contact
     ) {
         if(data) {
-            // console.log("contact to edit", data, this.contactForm)
             this.isEdit = true;
             this.contactToEditId = data.id || 0;
             this.contactForm.patchValue({
                 name: data.name,
                 email: data.email,
                 phone: data.phone,
-                comment: data.comment
+                comment: data.comment,
+                favorite: data.favorite
             });
         }
     }
