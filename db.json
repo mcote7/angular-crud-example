@@ -17,11 +17,11 @@
       "favorite": true
     },
     {
-      "name": "ok9090",
+      "name": "ok",
       "email": "michaelcote7@gmail.com",
       "phone": "9999999999",
-      "comment": "okok",
-      "favorite": true,
+      "comment": "",
+      "favorite": null,
       "id": 3
     }
   ]

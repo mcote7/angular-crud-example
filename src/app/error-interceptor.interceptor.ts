@@ -6,7 +6,7 @@ import {
     HttpInterceptor,
     HttpErrorResponse
 } from '@angular/common/http';
-import { Observable, catchError, throwError } from 'rxjs';
+import { Observable, catchError, of, throwError } from 'rxjs';
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
@@ -15,21 +15,22 @@ export class ErrorInterceptor implements HttpInterceptor {
             .pipe(
                 catchError((error: HttpErrorResponse) => {
                     let errorMsg = '';
+                    let myError: Error;
                     if (error.error instanceof ErrorEvent) {
                         errorMsg = `Error: ${error.error.message}`;
+                    } else {
+                        errorMsg = `Error Code: ${error.status}, Message: ${error.message}`;
                     }
-                    else {
-                        errorMsg = `Error Code: ${error.status},  Message: ${error.message}`;
-                    }
-                    return throwError(() => {
-                        errorMsg;
-                    })
+                    myError = new Error(errorMsg);
+                    console.log("error intercepted :::", myError.message)
+                    return throwError(() => of(myError));
                 })
             );
     }
 }
 
 // console.log("http intercepted!", request, next)
-// console.log('this is client side error'); if...
+// console.log('this is client/network side error'); if...
 // console.log('this is server side error'); else...
 // console.log("error intercepted: ", errorMsg)
+// 

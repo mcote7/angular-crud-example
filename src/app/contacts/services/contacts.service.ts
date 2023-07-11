@@ -21,7 +21,7 @@ export class ContactsService {
 
     // TODO: add loading state ... 
 
-    private getContacts(): Observable<Array<Contact>> {
+    public getContacts(): Observable<Array<Contact>> {
         return this.http.get<Array<Contact>>(this.API_URL)
             .pipe(
                 tap((contacts) => this.contacts.next(contacts))
@@ -35,7 +35,7 @@ export class ContactsService {
             );
     }
 
-    public deleteContact(contactId: number): Observable<Object> {
+    public deleteContact(contactId: number): Observable<Contact> {
         return this.http.delete<Contact>(`${this.API_URL}/${contactId}`)
             .pipe(
                 tap((_) => this.contacts.next([...this.contacts.getValue().filter((contact) => contact.id !== contactId)]))
