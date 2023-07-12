@@ -19,11 +19,11 @@ export class ErrorInterceptor implements HttpInterceptor {
                     if (error.error instanceof ErrorEvent) {
                         errorMsg = `Error: ${error.error.message}`;
                     } else {
-                        errorMsg = `Error Code: ${error.status}, Message: ${error.message}`;
+                        errorMsg = `Error Code: ${error.status}, Message for you: ${error.message}`;
                     }
                     myError = new Error(errorMsg);
-                    console.log("error intercepted :::", myError.message)
-                    return throwError(() => of(myError));
+                    console.log("error intercepted :::", myError) // ⬅️ use for test ...
+                    return throwError(() => myError);
                 })
             );
     }
