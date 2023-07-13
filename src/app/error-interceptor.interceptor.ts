@@ -14,16 +14,15 @@ export class ErrorInterceptor implements HttpInterceptor {
         return next.handle(request)
             .pipe(
                 catchError((error: HttpErrorResponse) => {
+                    // console.log("original error :::", error)
                     let errorMsg = '';
-                    let myError: Error;
                     if (error.error instanceof ErrorEvent) {
                         errorMsg = `Error: ${error.error.message}`;
                     } else {
                         errorMsg = `Error Code: ${error.status}, Message for you: ${error.message}`;
                     }
-                    myError = new Error(errorMsg);
-                    console.log("error intercepted :::", myError) // ⬅️ use for test ...
-                    return throwError(() => myError);
+                    // console.log("custom error :::", errorMsg) // ⬅️ use for test ...
+                    return throwError(() => errorMsg);
                 })
             );
     }
