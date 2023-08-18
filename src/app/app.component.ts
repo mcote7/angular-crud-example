@@ -1,4 +1,4 @@
-import { Component, DoCheck, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, DoCheck, NgZone, OnChanges, SimpleChanges } from '@angular/core';
 
 @Component({
     selector: 'app-root',
@@ -6,17 +6,42 @@ import { Component, DoCheck, OnChanges, SimpleChanges } from '@angular/core';
     styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements DoCheck, OnChanges {
-    constructor() {
-        // 
-        // setInterval(() => {});
-        // 
-        // setTimeout(() => {}, 3000);
-        // 
+
+    public name: string = "cote";
+
+    constructor(
+        private ngZone: NgZone
+    ) {
+
+        // this.ngZone.runOutsideAngular(() => {
+        //     setInterval(() => {
+        //         console.log("interval")
+        //     });
+        // });
+
+        // this.ngZone.runOutsideAngular(() => {
+        //     setTimeout(() => {
+        //         // this.ngZone.run(() => {})
+        //         this.name = "ok"; // name not updated in template
+        //         console.log(this.name)
+        //     }, 3000);
+        // });
+
         // setTimeout(() => {
-        //     requestAnimationFrame(() => {});
+        //     // this.ngZone.run(() => {})
+        //     this.name = "ok"; // name not updated in template
+        //     console.log(this.name)
         // }, 3000);
-        // 
-        // requestAnimationFrame(() => {});
+
+        // setInterval(() => {}); // triggers cd
+
+        // setTimeout(() => {}, 3000); // triggers cd
+
+        // setTimeout(() => {
+        //     requestAnimationFrame(() => {}); // triggers cd
+        // }, 3000);
+
+        // requestAnimationFrame(() => {}); // triggers cd
     }
 
     ngOnChanges(changes: SimpleChanges): void {
