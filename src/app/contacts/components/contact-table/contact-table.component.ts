@@ -45,5 +45,5 @@ export class ContactTableComponent {
         }
     }
 
-    tableAnimationDone(e:any ) { e.toState !== 0 ? this.isTableAnimationDone = true : null }
+    tableAnimationDone(e:any) { e.toState !== 0 ? this.isTableAnimationDone = true : null }
 }
